@@ -155,11 +155,11 @@ class dashBoard:
 
         for x in range(len(lst)):
             for y in range(coln):
-                self.Table_Row=Entry(M_FB1,width=15,fg='#2f8fdd',font=('Arial',8,'bold'))
+                self.Table_Row=Entry(M_FB1,width=15,fg='#2f8fdd',font=('Arial',10,'bold'))
                 self.Table_Row.grid(row=x,column=y)
                 self.Table_Row.insert(END,lst[x][y])
 
-        Act_title=Label(M_FB1,text="Action",font=('Arial',8,'bold'),fg='#2f8fdd').grid(row=0,column=10,padx= 20,pady=20)
+        Act_title=Label(M_FB1,text="Action",font=('Arial',10,'bold'),fg='#2f8fdd').grid(row=0,column=10,padx= 20,pady=20)
         updateBtn=Button(M_FB1,text="UPDATE",command=self.updateUser,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=10,padx=15,pady=15)
         deleteBtn=Button(M_FB1,text="DELETE",command=self.userManagment,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=12,padx=20,pady=20)
         
@@ -378,11 +378,11 @@ class dashBoard:
 
         for x in range(len(lst)):
             for y in range(coln):
-                self.Table_Row=Entry(M_FB1,width=15,fg='#2f8fdd',font=('Arial',8,'bold'))
+                self.Table_Row=Entry(M_FB1,width=15,fg='#2f8fdd',font=('Arial',10,'bold'))
                 self.Table_Row.grid(row=x,column=y)
                 self.Table_Row.insert(END,lst[x][y])
 
-        Act_title=Label(M_FB1,text="Action",font=('Arial',8,'bold'),fg='#2f8fdd').grid(row=0,column=10,padx= 20,pady=20)
+        Act_title=Label(M_FB1,text="Action",font=('Arial',10,'bold'),fg='#2f8fdd').grid(row=0,column=10,padx= 20,pady=20)
         updateBtn=Button(M_FB1,text="UPDATE",command=self.updateCust,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=10,padx=15,pady=15)
         deleteBtn=Button(M_FB1,text="DELETE",command=self.userManagment,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=12,padx=20,pady=20)
 
@@ -590,11 +590,11 @@ class dashBoard:
 
         for x in range(len(lst)):
             for y in range(coln):
-                self.Table_Row=Entry(M_FB1,width=15,fg='#2f8fdd',font=('Arial',8,'bold'))
+                self.Table_Row=Entry(M_FB1,width=15,fg='#2f8fdd',font=('Arial',10,'bold'))
                 self.Table_Row.grid(row=x,column=y)
                 self.Table_Row.insert(END,lst[x][y])
 
-        Act_title=Label(M_FB1,text="Action",font=('Arial',8,'bold'),fg='#2f8fdd').grid(row=0,column=10,padx= 20,pady=20)
+        Act_title=Label(M_FB1,text="Action",font=('Arial',10,'bold'),fg='#2f8fdd').grid(row=0,column=10,padx= 20,pady=20)
         updateBtn=Button(M_FB1,text="UPDATE",command=self.updateItem,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=10,padx=15,pady=15)
         deleteBtn=Button(M_FB1,text="DELETE",command=self.userManagment,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=12,padx=20,pady=20)
         
@@ -806,11 +806,11 @@ class dashBoard:
 
         for x in range(len(lst)):
             for y in range(coln):
-                self.Table_Row=Entry(M_FB1,width=15,fg='#2f8fdd',font=('Arial',8,'bold'))
+                self.Table_Row=Entry(M_FB1,width=15,fg='#2f8fdd',font=('Arial',10,'bold'))
                 self.Table_Row.grid(row=x,column=y)
                 self.Table_Row.insert(END,lst[x][y])
 
-        Act_title=Label(M_FB1,text="Action",font=('Arial',8,'bold'),fg='#2f8fdd').grid(row=0,column=10,padx= 20,pady=20)
+        Act_title=Label(M_FB1,text="Action",font=('Arial',10,'bold'),fg='#2f8fdd').grid(row=0,column=10,padx= 20,pady=20)
         updateBtn=Button(M_FB1,text="UPDATE",command=self.updateRank,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=10,padx=15,pady=15)
         deleteBtn=Button(M_FB1,text="DELETE",command=self.userManagment,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=12,padx=20,pady=20)
 
@@ -966,11 +966,11 @@ class dashBoard:
 
         for x in range(len(lst)):
             for y in range(coln):
-                self.Table_Row=Entry(M_FB1,width=15,fg='#2f8fdd',font=('Arial',8,'bold'))
+                self.Table_Row=Entry(M_FB1,width=15,fg='#2f8fdd',font=('Arial',10,'bold'))
                 self.Table_Row.grid(row=x,column=y)
                 self.Table_Row.insert(END,lst[x][y])
 
-        Act_title=Label(M_FB1,text="Action",font=('Arial',8,'bold'),fg='#2f8fdd').grid(row=0,column=10,padx= 20,pady=20)
+        Act_title=Label(M_FB1,text="Action",font=('Arial',10,'bold'),fg='#2f8fdd').grid(row=0,column=10,padx= 20,pady=20)
         updateBtn=Button(M_FB1,text="UPDATE",command=self.updateQuota,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=10,padx=15,pady=15)
         deleteBtn=Button(M_FB1,text="DELETE",command=self.userManagment,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=12,padx=20,pady=20)
         
