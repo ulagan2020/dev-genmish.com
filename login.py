@@ -119,33 +119,29 @@ class dashBoard:
 
         SrchEBtn=Button(M_F,text="CUSTOMER MANAGEMENT",command=self.custMgmtdata,width=30,bg="#2f8fdd",fg="white").grid(row=5,column=0,padx=20,pady=20)     
 
-        SrchEBtn=Button(M_F,text="INVENTORY MANAGEMENT",command=self.fetch_Edata,width=30,bg="#2f8fdd",fg="white").grid(row=7,column=0,padx=20,pady=20)
+        SrchEBtn=Button(M_F,text="INVENTORY MANAGEMENT",command=self.inventMgmtdata,width=30,bg="#2f8fdd",fg="white").grid(row=7,column=0,padx=20,pady=20)
 
        
-        SrchSBtn=Button(M_F,text="RANK MANAGEMENT",command=self.fetch_Sdata,width=30,bg="#2f8fdd",fg="white").grid(row=9,column=0,padx=20,pady=20)
+        SrchSBtn=Button(M_F,text="RANK MANAGEMENT",command=self.rankMgmtdata,width=30,bg="#2f8fdd",fg="white").grid(row=9,column=0,padx=20,pady=20)
 
        
-        Log_Btn=Button(M_F,text="QUOTA MANAGEMENT",command=self.fetch_Sdata,width=30,bg="#2f8fdd",fg="white").grid(row=11,column=0,padx=20,pady=20)
+        Log_Btn=Button(M_F,text="QUOTA MANAGEMENT",command=self.quotMgmtdata,width=30,bg="#2f8fdd",fg="white").grid(row=11,column=0,padx=20,pady=20)
 
-        SrchEBtn=Button(M_F,text="USER MANAGEMENT",command=self.fetch_Edata,width=30,bg="#2f8fdd",fg="white").grid(row=13,column=0,padx=20,pady=20)
+        SrchEBtn=Button(M_F,text="USER MANAGEMENT",command=self.userMgmtdata,width=30,bg="#2f8fdd",fg="white").grid(row=13,column=0,padx=20,pady=20)
 
         #Log_Btn=Button(M_F,text="LOG OUT",command=lambda: self.logout("Logout"),width=30,bg="#2f8fdd",fg="white").grid(row=9,column=0,padx=20,pady=20)
 
-    def fetch_Dashboard(self):
-        #self.root.destroy()
-        obj=dashBoard(root,"User1")
-        
-    def custMgmtdata(self):
+    def userMgmtdata(self):
         D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
         D_F.place(x=400,y=100,width=1030,height=580)
           
-        M_title=Label(D_F,text="CUSTOMER MANAGEMENT",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
+        M_title=Label(D_F,text="USER MANAGEMENT",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
         M_title.grid(row=1,column=15,padx= 25,pady=25)
 
         M_FB= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
         M_FB.place(x=400,y=200,width=800,height=180)
         
-        SrchBtn=Button(M_FB,text="ADD",command=self.addCustomr,width=30,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=25,padx=40,pady=40)
+        SrchBtn=Button(M_FB,text="ADD",command=self.adduser,width=30,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=25,padx=40,pady=40)
 
              
         SrchEBtn=Button(M_FB,text="AUDIT LOG",command=self.fetch_Edata,width=30,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=45,padx=60,pady=40)
@@ -153,13 +149,19 @@ class dashBoard:
         M_FB1= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
         M_FB1.place(x=400,y=500,width=800,height=180)
 
-        M_Idtitle=Label(M_FB1,text="ID",font=("times new roman",10,"bold"),bg="#f3fbfe",fg='#2f8fdd').grid(row=0,column=5,padx= 25,pady=25)
-        M_Ntitle=Label(M_FB1,text="NAME",font=("times new roman",10,"bold"),bg="#f3fbfe",fg='#2f8fdd').grid(row=0,column=7,padx= 25,pady=25)
-        M_title=Label(M_FB1,text="RANK",font=("times new roman",10,"bold"),bg="#f3fbfe",fg='#2f8fdd').grid(row=0,column=9,padx= 25,pady=25)
-        M_title=Label(M_FB1,text="ACTION",font=("times new roman",10,"bold"),bg="#f3fbfe",fg='#2f8fdd').grid(row=0,column=11,padx= 25,pady=25)
+        lst = [("User Name","Password","Name","Email","Address"),("user1","*******","Raj","raj092021@gmail.com","New Delhi")]
+        coln=len(lst[0])
+        #print(len(lst))
 
-        updateBtn=Button(M_FB1,text="UPDATE",command=self.userManagment,width=15,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=12,padx=40,pady=40)
-        deleteBtn=Button(M_FB1,text="DELETE",command=self.userManagment,width=15,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=15,padx=40,pady=40)
+        for x in range(len(lst)):
+            for y in range(coln):
+                self.Table_Row=Entry(M_FB1,width=15,fg='#2f8fdd',font=('Arial',8,'bold'))
+                self.Table_Row.grid(row=x,column=y)
+                self.Table_Row.insert(END,lst[x][y])
+
+        Act_title=Label(M_FB1,text="Action",font=('Arial',8,'bold'),fg='#2f8fdd').grid(row=0,column=10,padx= 20,pady=20)
+        updateBtn=Button(M_FB1,text="UPDATE",command=self.updateUser,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=10,padx=15,pady=15)
+        deleteBtn=Button(M_FB1,text="DELETE",command=self.userManagment,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=12,padx=20,pady=20)
         
         #Tbl_Frame=Frame(D_F,bd=2,relief=RIDGE,bg="#2f8fdd",fg="white")
         #Tbl_Frame.place(x=5,y=160,width=760,height=500)
@@ -224,7 +226,284 @@ class dashBoard:
         #root.destroy()
     '''
         
+    def updateUser(self):
+        D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
+        D_F.place(x=400,y=100,width=1030,height=580)
+          
+        M_title=Label(D_F,text="EDIT USER",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
+        M_title.grid(row=0,column=3,padx= 15,pady=15)
+          
+        #cursor.execute("select * from register where username=%s")
+        
+        e1_Lbl=Label(D_F,text="User Name:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e1_Lbl.grid(row=2,column=3)
+
+        e1 = Entry(D_F, width=40,borderwidth=5)
+        e1.grid(row=2, column=4,padx= 15, pady= 15)
+        e1.insert(1, "user123")
+ 
+        e2_Lbl=Label(D_F,text="Password:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e2_Lbl.grid(row=4,column=3)
+
+        
+        e2 = Entry(D_F, width=40,borderwidth=5)
+        e2.grid(row=4, column=4,padx= 10, pady= 10)
+        e2.insert(0, "123123")
+ 
+        e3_Lbl=Label(D_F,text="First Name:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e3_Lbl.grid(row=6,column=3)
+
+
+        e3 = Entry(D_F, width=40,borderwidth=5)
+        e3.grid(row=6, column=4,padx= 10, pady= 10)
+        e3.insert(0, "ABC")
+
+        e4_Lbl=Label(D_F,text="Last Name:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e4_Lbl.grid(row=8,column=3)
+
+
+        e4 = Entry(D_F, width=40,borderwidth=5)
+        e4.grid(row=8, column=4,padx= 10, pady= 10)
+        e4.insert(0, "XYZ")
+
+        e5_Lbl=Label(D_F,text="Email:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e5_Lbl.grid(row=10,column=3)
+
+        e6 = Entry(D_F, width=40,borderwidth=5)
+        e6.grid(row=10, column=4,padx= 10, pady= 10)
+        e6.insert(0, "")
+
+        e5_Lbl=Label(D_F,text="Address:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e5_Lbl.grid(row=12,column=3)
+
+        e6 = Entry(D_F, width=40,borderwidth=5)
+        e6.grid(row=12, column=4,padx= 10, pady= 10)
+        e6.insert(0, "NEW DELHI")
+
+        
+       
+        submitBtn=Button(D_F,text="SUBMIT", command=self.submit_AddCstData,width=30,bg="#2f8fdd",fg='white').grid(row=14,column=4,padx=20,pady=20)
+        
+
+    def adduser(self):
+        
+        
+        #print("Student details")
+        #usr=fetch_Studentdata(r)
+        D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
+        D_F.place(x=400,y=100,width=1030,height=580)
+          
+        M_title=Label(D_F,text="ADD USER",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
+        M_title.grid(row=0,column=3,padx= 15,pady=15)
+          
+        #cursor.execute("select * from register where username=%s")
+        
+        e1_Lbl=Label(D_F,text="User Name:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e1_Lbl.grid(row=2,column=3)
+
+        e1 = Entry(D_F, width=40,borderwidth=5)
+        e1.grid(row=2, column=4,padx= 15, pady= 15)
+        e1.insert(1, "")
+ 
+        e2_Lbl=Label(D_F,text="Password:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e2_Lbl.grid(row=4,column=3)
+
+        
+        e2 = Entry(D_F, width=40,borderwidth=5)
+        e2.grid(row=4, column=4,padx= 10, pady= 10)
+        e2.insert(0, "")
+ 
+        e3_Lbl=Label(D_F,text="First Name:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e3_Lbl.grid(row=6,column=3)
+
+
+        e3 = Entry(D_F, width=40,borderwidth=5)
+        e3.grid(row=6, column=4,padx= 10, pady= 10)
+        e3.insert(0, "")
+
+        e4_Lbl=Label(D_F,text="Last Name:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e4_Lbl.grid(row=8,column=3)
+
+
+        e4 = Entry(D_F, width=40,borderwidth=5)
+        e4.grid(row=8, column=4,padx= 10, pady= 10)
+        e4.insert(0, "")
+
+        e5_Lbl=Label(D_F,text="Email:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e5_Lbl.grid(row=10,column=3)
+
+        e6 = Entry(D_F, width=40,borderwidth=5)
+        e6.grid(row=10, column=4,padx= 10, pady= 10)
+        e6.insert(0, "")
+
+        e5_Lbl=Label(D_F,text="Address:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e5_Lbl.grid(row=12,column=3)
+
+        e6 = Entry(D_F, width=40,borderwidth=5)
+        e6.grid(row=12, column=4,padx= 10, pady= 10)
+        e6.insert(0, "")
+
+               
+        submitBtn=Button(D_F,text="SUBMIT", command=self.submit_AddCstData,width=30,bg="#2f8fdd",fg='white').grid(row=14,column=4,padx=20,pady=20)
     
+
+
+
+    def fetch_Dashboard(self):
+        #self.root.destroy()
+        obj=dashBoard(root,"User1")
+        
+    def custMgmtdata(self):
+        D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
+        D_F.place(x=400,y=100,width=1030,height=580)
+          
+        M_title=Label(D_F,text="CUSTOMER MANAGEMENT",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
+        M_title.grid(row=1,column=15,padx= 25,pady=25)
+
+        M_FB= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
+        M_FB.place(x=400,y=200,width=800,height=180)
+        
+        SrchBtn=Button(M_FB,text="ADD",command=self.addCustomr,width=30,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=25,padx=40,pady=40)
+
+             
+        SrchEBtn=Button(M_FB,text="AUDIT LOG",command=self.fetch_Edata,width=30,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=45,padx=60,pady=40)
+
+        M_FB1= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
+        M_FB1.place(x=400,y=500,width=800,height=180)
+
+
+        lst = [("Id","Name","Rank"),(123,"Raj","1st")]
+        coln=len(lst[0])
+        #print(len(lst))
+
+        for x in range(len(lst)):
+            for y in range(coln):
+                self.Table_Row=Entry(M_FB1,width=15,fg='#2f8fdd',font=('Arial',8,'bold'))
+                self.Table_Row.grid(row=x,column=y)
+                self.Table_Row.insert(END,lst[x][y])
+
+        Act_title=Label(M_FB1,text="Action",font=('Arial',8,'bold'),fg='#2f8fdd').grid(row=0,column=10,padx= 20,pady=20)
+        updateBtn=Button(M_FB1,text="UPDATE",command=self.updateCust,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=10,padx=15,pady=15)
+        deleteBtn=Button(M_FB1,text="DELETE",command=self.userManagment,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=12,padx=20,pady=20)
+
+
+
+        
+        
+        #Tbl_Frame=Frame(D_F,bd=2,relief=RIDGE,bg="#2f8fdd",fg="white")
+        #Tbl_Frame.place(x=5,y=160,width=760,height=500)
+        #treev = ttk.Treeview(Tbl_Frame, selectmode ='browse')
+        #t = Table(root)
+
+      
+        
+        '''
+        treev = ttk.Treeview(Tbl_Frame, selectmode ='browse')
+        
+        treev.pack(side ='left')
+        verscrlbar = ttk.Scrollbar(Tbl_Frame,orient ="vertical",command = treev.yview)
+        verscrlbar.pack(side ='right', fill ='x')
+        treev.configure(xscrollcommand = verscrlbar.set)
+        
+        # Defining number of columns
+        treev["columns"] = ("1", "2", "3","4","5")
+          
+        # Defining heading
+        treev['show'] = 'headings'
+          
+        # Assigning the width and anchor to  the
+        # respective columns
+        treev.column("1", width = 100, anchor ='c')
+        treev.column("2", width = 150, anchor ='c')
+        treev.column("3", width = 300, anchor ='c')
+        treev.column("4", width = 80, anchor ='c')
+        treev.column("5", width = 100, anchor ='c')
+          
+        # Assigning the heading names to the 
+        # respective columns
+        treev.heading("1", text ="ID")
+        treev.heading("2", text ="NAME")
+        treev.heading("3", text ="RANK")
+        treev.heading("4", text ="ACTION")
+        #treev.heading("5", text ="EPARTMENT")
+        
+        
+  
+# Configuring treeview
+        treev.configure(xscrollcommand = verscrlbar.set)
+        #cursor.execute("select * from t_courses")
+        
+        #result= cursor.fetchall()
+        #print(len(result))
+        result=("123","abc","rank1")
+        
+        for x in result:
+            treev.insert("", 'end', text ="",values =(x[0], x[1], x[2]))
+            
+        #treev.tag_configure('odd', foreground="white",background='black')
+        #treev.tag_configure('even', foreground="black",background='white')
+        '''
+    '''
+    def logout(self,text):
+        print(text)
+
+        #3opennewWindow(self)
+        root.destroy()
+        import login
+        #root.destroy()
+    '''
+        
+    def updateCust(self):
+        D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
+        D_F.place(x=400,y=100,width=1030,height=580)
+          
+        M_title=Label(D_F,text="EDIT CUSTOMER",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
+        M_title.grid(row=0,column=3,padx= 15,pady=15)
+          
+        #cursor.execute("select * from register where username=%s")
+        
+        e1_Lbl=Label(D_F,text="First Name:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e1_Lbl.grid(row=2,column=3)
+
+        e1 = Entry(D_F, width=40,borderwidth=5)
+        e1.grid(row=2, column=4,padx= 15, pady= 15)
+        e1.insert(1, "ABC")
+ 
+        e2_Lbl=Label(D_F,text="Last Name:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e2_Lbl.grid(row=4,column=3)
+
+        
+        e2 = Entry(D_F, width=40,borderwidth=5)
+        e2.grid(row=4, column=4,padx= 10, pady= 10)
+        e2.insert(0, "XYZ")
+ 
+        e3_Lbl=Label(D_F,text="Rank:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e3_Lbl.grid(row=6,column=3)
+
+
+        e3 = Entry(D_F, width=40,borderwidth=5)
+        e3.grid(row=6, column=4,padx= 10, pady= 10)
+        e3.insert(0, "Army")
+
+        e4_Lbl=Label(D_F,text="Mobile:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e4_Lbl.grid(row=8,column=3)
+
+
+        e4 = Entry(D_F, width=40,borderwidth=5)
+        e4.grid(row=8, column=4,padx= 10, pady= 10)
+        e4.insert(0, "79798789")
+
+        e5_Lbl=Label(D_F,text="Address:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e5_Lbl.grid(row=10,column=3)
+
+        e6 = Entry(D_F, width=40,borderwidth=5)
+        e6.grid(row=10, column=4,padx= 10, pady= 10)
+        e6.insert(0, "New delhi")
+
+        
+       
+        submitBtn=Button(D_F,text="SUBMIT", command=self.submit_AddCstData,width=30,bg="#2f8fdd",fg='white').grid(row=12,column=4,padx=20,pady=20)
+        
 
     def addCustomr(self):
         
@@ -284,6 +563,540 @@ class dashBoard:
 
         #SubmitBtn=Button(D_F,text="EDIT & UPDATE",                 command=lambda: self.submit_Data(e1.get(),e2.get(),e3.get(),e4.get(),e5.get(),e6.get(),e7.get())
                         # ,width=30,bg="yellow",fg="crimson").grid(row=16,column=3,padx=20,pady=20)        
+
+
+    def inventMgmtdata(self):
+        D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
+        D_F.place(x=400,y=100,width=1030,height=580)
+          
+        M_title=Label(D_F,text="INVENTORY MANAGEMENT",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
+        M_title.grid(row=1,column=15,padx= 25,pady=25)
+
+        M_FB= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
+        M_FB.place(x=400,y=200,width=900,height=180)
+        
+        SrchBtn=Button(M_FB,text="ADD",command=self.addItem,width=30,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=25,padx=40,pady=40)
+
+             
+        SrchEBtn=Button(M_FB,text="AUDIT LOG",command=self.fetch_Edata,width=30,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=45,padx=60,pady=40)
+
+        M_FB1= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
+        M_FB1.place(x=400,y=500,width=800,height=180)
+
+
+        lst = [("Name","Quantity","Landing Price","Tax","Handling Charge"),('Raj',10,19,5,10)]
+        coln=len(lst[0])
+        #print(len(lst))
+
+        for x in range(len(lst)):
+            for y in range(coln):
+                self.Table_Row=Entry(M_FB1,width=15,fg='#2f8fdd',font=('Arial',8,'bold'))
+                self.Table_Row.grid(row=x,column=y)
+                self.Table_Row.insert(END,lst[x][y])
+
+        Act_title=Label(M_FB1,text="Action",font=('Arial',8,'bold'),fg='#2f8fdd').grid(row=0,column=10,padx= 20,pady=20)
+        updateBtn=Button(M_FB1,text="UPDATE",command=self.updateItem,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=10,padx=15,pady=15)
+        deleteBtn=Button(M_FB1,text="DELETE",command=self.userManagment,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=12,padx=20,pady=20)
+        
+        #Tbl_Frame=Frame(D_F,bd=2,relief=RIDGE,bg="#2f8fdd",fg="white")
+        #Tbl_Frame.place(x=5,y=160,width=760,height=500)
+        #treev = ttk.Treeview(Tbl_Frame, selectmode ='browse')
+        #t = Table(root)
+
+      
+        
+        '''
+        treev = ttk.Treeview(Tbl_Frame, selectmode ='browse')
+        
+        treev.pack(side ='left')
+        verscrlbar = ttk.Scrollbar(Tbl_Frame,orient ="vertical",command = treev.yview)
+        verscrlbar.pack(side ='right', fill ='x')
+        treev.configure(xscrollcommand = verscrlbar.set)
+        
+        # Defining number of columns
+        treev["columns"] = ("1", "2", "3","4","5")
+          
+        # Defining heading
+        treev['show'] = 'headings'
+          
+        # Assigning the width and anchor to  the
+        # respective columns
+        treev.column("1", width = 100, anchor ='c')
+        treev.column("2", width = 150, anchor ='c')
+        treev.column("3", width = 300, anchor ='c')
+        treev.column("4", width = 80, anchor ='c')
+        treev.column("5", width = 100, anchor ='c')
+          
+        # Assigning the heading names to the 
+        # respective columns
+        treev.heading("1", text ="ID")
+        treev.heading("2", text ="NAME")
+        treev.heading("3", text ="RANK")
+        treev.heading("4", text ="ACTION")
+        #treev.heading("5", text ="EPARTMENT")
+        
+        
+  
+# Configuring treeview
+        treev.configure(xscrollcommand = verscrlbar.set)
+        #cursor.execute("select * from t_courses")
+        
+        #result= cursor.fetchall()
+        #print(len(result))
+        result=("123","abc","rank1")
+        
+        for x in result:
+            treev.insert("", 'end', text ="",values =(x[0], x[1], x[2]))
+            
+        #treev.tag_configure('odd', foreground="white",background='black')
+        #treev.tag_configure('even', foreground="black",background='white')
+        '''
+    '''
+    def logout(self,text):
+        print(text)
+
+        #3opennewWindow(self)
+        root.destroy()
+        import login
+        #root.destroy()
+    '''
+        
+    def updateItem(self):
+        D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
+        D_F.place(x=400,y=100,width=1030,height=580)
+          
+        M_title=Label(D_F,text="EDIT ITEM",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
+        M_title.grid(row=0,column=3,padx= 15,pady=15)
+          
+        #cursor.execute("select * from register where username=%s")
+        
+        e1_Lbl=Label(D_F,text="Item Name:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e1_Lbl.grid(row=2,column=3)
+
+        e1 = Entry(D_F, width=40,borderwidth=5)
+        e1.grid(row=2, column=4,padx= 15, pady= 15)
+        e1.insert(1, "ABC")
+ 
+        e2_Lbl=Label(D_F,text="Quantity:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e2_Lbl.grid(row=4,column=3)
+
+        
+        e2 = Entry(D_F, width=40,borderwidth=5)
+        e2.grid(row=4, column=4,padx= 10, pady= 10)
+        e2.insert(0, "10")
+ 
+        e3_Lbl=Label(D_F,text="Landing Price:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e3_Lbl.grid(row=6,column=3)
+
+
+        e3 = Entry(D_F, width=40,borderwidth=5)
+        e3.grid(row=6, column=4,padx= 10, pady= 10)
+        e3.insert(0, "100")
+
+        e4_Lbl=Label(D_F,text="Tax:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e4_Lbl.grid(row=8,column=3)
+
+
+        e4 = Entry(D_F, width=40,borderwidth=5)
+        e4.grid(row=8, column=4,padx= 10, pady= 10)
+        e4.insert(0, "10")
+
+        e5_Lbl=Label(D_F,text="Handling Charge:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e5_Lbl.grid(row=10,column=3)
+
+        e5 = Entry(D_F, width=40,borderwidth=5)
+        e5.grid(row=10, column=4,padx= 10, pady= 10)
+        e5.insert(0, "10")
+
+        e6_Lbl=Label(D_F,text="Rate:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e6_Lbl.grid(row=12,column=3)
+
+        e6 = Entry(D_F, width=40,borderwidth=5)
+        e6.grid(row=12, column=4,padx= 10, pady= 10)
+        e6.insert(0, "1000")
+
+        
+       
+        submitBtn=Button(D_F,text="SUBMIT", command=self.submit_AddCstData,width=30,bg="#2f8fdd",fg='white').grid(row=14,column=4,padx=20,pady=20)
+        
+
+    def addItem(self):
+        
+        
+        #print("Student details")
+        #usr=fetch_Studentdata(r)
+        D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
+        D_F.place(x=400,y=100,width=1030,height=580)
+          
+        M_title=Label(D_F,text="ADD ITEM",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
+        M_title.grid(row=0,column=3,padx= 15,pady=15)
+          
+        #cursor.execute("select * from register where username=%s")
+        
+        e1_Lbl=Label(D_F,text="Item Name:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e1_Lbl.grid(row=2,column=3)
+
+        e1 = Entry(D_F, width=40,borderwidth=5)
+        e1.grid(row=2, column=4,padx= 15, pady= 15)
+        e1.insert(1, "")
+ 
+        e2_Lbl=Label(D_F,text="Quantity:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e2_Lbl.grid(row=4,column=3)
+
+        
+        e2 = Entry(D_F, width=40,borderwidth=5)
+        e2.grid(row=4, column=4,padx= 10, pady= 10)
+        e2.insert(0, "")
+ 
+        e3_Lbl=Label(D_F,text="Landing Price:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e3_Lbl.grid(row=6,column=3)
+
+
+        e3 = Entry(D_F, width=40,borderwidth=5)
+        e3.grid(row=6, column=4,padx= 10, pady= 10)
+        e3.insert(0, "")
+
+        e4_Lbl=Label(D_F,text="Tax:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e4_Lbl.grid(row=8,column=3)
+
+
+        e4 = Entry(D_F, width=40,borderwidth=5)
+        e4.grid(row=8, column=4,padx= 10, pady= 10)
+        e4.insert(0, "")
+
+        e5_Lbl=Label(D_F,text="Handling Charge:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e5_Lbl.grid(row=10,column=3)
+
+        e5 = Entry(D_F, width=40,borderwidth=5)
+        e5.grid(row=10, column=4,padx= 10, pady= 10)
+        e5.insert(0, "")
+
+        e6_Lbl=Label(D_F,text="Rate:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e6_Lbl.grid(row=12,column=3)
+
+        e6 = Entry(D_F, width=40,borderwidth=5)
+        e6.grid(row=12, column=4,padx= 10, pady= 10)
+        e6.insert(0, "")
+
+        
+       
+        submitBtn=Button(D_F,text="SUBMIT", command=self.submit_AddCstData,width=30,bg="#2f8fdd",fg='white').grid(row=14,column=4,padx=20,pady=20)
+
+    def rankMgmtdata(self):
+        D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
+        D_F.place(x=400,y=100,width=1030,height=580)
+          
+        M_title=Label(D_F,text="RANK MANAGEMENT",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
+        M_title.grid(row=1,column=15,padx= 25,pady=25)
+
+        M_FB= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
+        M_FB.place(x=400,y=200,width=800,height=180)
+        
+        SrchBtn=Button(M_FB,text="ADD",command=self.addRank,width=30,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=25,padx=40,pady=40)
+
+             
+        SrchEBtn=Button(M_FB,text="AUDIT LOG",command=self.fetch_Edata,width=30,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=45,padx=60,pady=40)
+
+        M_FB1= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
+        M_FB1.place(x=400,y=500,width=800,height=180)
+
+        lst = [("Rank Id","Rank Name","Created Date"),(123,"Raj","08th sep 2021")]
+        coln=len(lst[0])
+        #print(len(lst))
+
+        for x in range(len(lst)):
+            for y in range(coln):
+                self.Table_Row=Entry(M_FB1,width=15,fg='#2f8fdd',font=('Arial',8,'bold'))
+                self.Table_Row.grid(row=x,column=y)
+                self.Table_Row.insert(END,lst[x][y])
+
+        Act_title=Label(M_FB1,text="Action",font=('Arial',8,'bold'),fg='#2f8fdd').grid(row=0,column=10,padx= 20,pady=20)
+        updateBtn=Button(M_FB1,text="UPDATE",command=self.updateRank,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=10,padx=15,pady=15)
+        deleteBtn=Button(M_FB1,text="DELETE",command=self.userManagment,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=12,padx=20,pady=20)
+
+
+        
+        #Tbl_Frame=Frame(D_F,bd=2,relief=RIDGE,bg="#2f8fdd",fg="white")
+        #Tbl_Frame.place(x=5,y=160,width=760,height=500)
+        #treev = ttk.Treeview(Tbl_Frame, selectmode ='browse')
+        #t = Table(root)
+
+      
+        
+        '''
+        treev = ttk.Treeview(Tbl_Frame, selectmode ='browse')
+        
+        treev.pack(side ='left')
+        verscrlbar = ttk.Scrollbar(Tbl_Frame,orient ="vertical",command = treev.yview)
+        verscrlbar.pack(side ='right', fill ='x')
+        treev.configure(xscrollcommand = verscrlbar.set)
+        
+        # Defining number of columns
+        treev["columns"] = ("1", "2", "3","4","5")
+          
+        # Defining heading
+        treev['show'] = 'headings'
+          
+        # Assigning the width and anchor to  the
+        # respective columns
+        treev.column("1", width = 100, anchor ='c')
+        treev.column("2", width = 150, anchor ='c')
+        treev.column("3", width = 300, anchor ='c')
+        treev.column("4", width = 80, anchor ='c')
+        treev.column("5", width = 100, anchor ='c')
+          
+        # Assigning the heading names to the 
+        # respective columns
+        treev.heading("1", text ="ID")
+        treev.heading("2", text ="NAME")
+        treev.heading("3", text ="RANK")
+        treev.heading("4", text ="ACTION")
+        #treev.heading("5", text ="EPARTMENT")
+        
+        
+  
+# Configuring treeview
+        treev.configure(xscrollcommand = verscrlbar.set)
+        #cursor.execute("select * from t_courses")
+        
+        #result= cursor.fetchall()
+        #print(len(result))
+        result=("123","abc","rank1")
+        
+        for x in result:
+            treev.insert("", 'end', text ="",values =(x[0], x[1], x[2]))
+            
+        #treev.tag_configure('odd', foreground="white",background='black')
+        #treev.tag_configure('even', foreground="black",background='white')
+        '''
+    '''
+    def logout(self,text):
+        print(text)
+
+        #3opennewWindow(self)
+        root.destroy()
+        import login
+        #root.destroy()
+    '''
+        
+    def updateRank(self):
+        D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
+        D_F.place(x=400,y=100,width=1030,height=580)
+          
+        M_title=Label(D_F,text="EDIT RANK",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
+        M_title.grid(row=0,column=3,padx= 15,pady=15)
+          
+        #cursor.execute("select * from register where username=%s")
+        
+        e1_Lbl=Label(D_F,text="Rank Id:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e1_Lbl.grid(row=2,column=3)
+
+        e1 = Entry(D_F, width=40,borderwidth=5)
+        e1.grid(row=2, column=4,padx= 15, pady= 15)
+        e1.insert(1, "ABC")
+ 
+        e2_Lbl=Label(D_F,text="Rank Name:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e2_Lbl.grid(row=4,column=3)
+
+        
+        e2 = Entry(D_F, width=40,borderwidth=5)
+        e2.grid(row=4, column=4,padx= 10, pady= 10)
+        e2.insert(0, "XYZ")
+ 
+               
+       
+        submitBtn=Button(D_F,text="SUBMIT", command=self.submit_AddCstData,width=30,bg="#2f8fdd",fg='white').grid(row=6,column=4,padx=20,pady=20)
+        
+
+    def addRank(self):
+        
+        
+        #print("Student details")
+        #usr=fetch_Studentdata(r)
+        D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
+        D_F.place(x=400,y=100,width=1030,height=580)
+          
+        M_title=Label(D_F,text="ADD RANK",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
+        M_title.grid(row=0,column=3,padx= 15,pady=15)
+          
+        #cursor.execute("select * from register where username=%s")
+        
+        e1_Lbl=Label(D_F,text="Rank Id:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e1_Lbl.grid(row=2,column=3)
+
+        e1 = Entry(D_F, width=40,borderwidth=5)
+        e1.grid(row=2, column=4,padx= 15, pady= 15)
+        e1.insert(1, "")
+ 
+        e2_Lbl=Label(D_F,text="Rank Name:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e2_Lbl.grid(row=4,column=3)
+
+        e1 = Entry(D_F, width=40,borderwidth=5)
+        e1.grid(row=4, column=4,padx= 15, pady= 15)
+        e1.insert(1, "")
+
+        
+        
+
+        
+       
+        submitBtn=Button(D_F,text="SUBMIT", command=self.submit_AddCstData,width=30,bg="#2f8fdd",fg='white').grid(row=6,column=4,padx=20,pady=20)
+
+    def quotMgmtdata(self):
+        D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
+        D_F.place(x=400,y=100,width=1030,height=580)
+          
+        M_title=Label(D_F,text="QUOTA MANAGEMENT",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
+        M_title.grid(row=1,column=15,padx= 25,pady=25)
+
+        M_FB= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
+        M_FB.place(x=400,y=200,width=800,height=180)
+        
+        SrchBtn=Button(M_FB,text="ADD",command=self.addQuota,width=30,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=25,padx=40,pady=40)
+
+             
+        SrchEBtn=Button(M_FB,text="AUDIT LOG",command=self.fetch_Edata,width=30,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=45,padx=60,pady=40)
+
+        M_FB1= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
+        M_FB1.place(x=400,y=500,width=800,height=180)
+
+        lst = [("Rank ","Quantity"),(123,100)]
+        coln=len(lst[0])
+        #print(len(lst))
+
+        for x in range(len(lst)):
+            for y in range(coln):
+                self.Table_Row=Entry(M_FB1,width=15,fg='#2f8fdd',font=('Arial',8,'bold'))
+                self.Table_Row.grid(row=x,column=y)
+                self.Table_Row.insert(END,lst[x][y])
+
+        Act_title=Label(M_FB1,text="Action",font=('Arial',8,'bold'),fg='#2f8fdd').grid(row=0,column=10,padx= 20,pady=20)
+        updateBtn=Button(M_FB1,text="UPDATE",command=self.updateQuota,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=10,padx=15,pady=15)
+        deleteBtn=Button(M_FB1,text="DELETE",command=self.userManagment,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=12,padx=20,pady=20)
+        
+        #Tbl_Frame=Frame(D_F,bd=2,relief=RIDGE,bg="#2f8fdd",fg="white")
+        #Tbl_Frame.place(x=5,y=160,width=760,height=500)
+        #treev = ttk.Treeview(Tbl_Frame, selectmode ='browse')
+        #t = Table(root)
+
+      
+        
+        '''
+        treev = ttk.Treeview(Tbl_Frame, selectmode ='browse')
+        
+        treev.pack(side ='left')
+        verscrlbar = ttk.Scrollbar(Tbl_Frame,orient ="vertical",command = treev.yview)
+        verscrlbar.pack(side ='right', fill ='x')
+        treev.configure(xscrollcommand = verscrlbar.set)
+        
+        # Defining number of columns
+        treev["columns"] = ("1", "2", "3","4","5")
+          
+        # Defining heading
+        treev['show'] = 'headings'
+          
+        # Assigning the width and anchor to  the
+        # respective columns
+        treev.column("1", width = 100, anchor ='c')
+        treev.column("2", width = 150, anchor ='c')
+        treev.column("3", width = 300, anchor ='c')
+        treev.column("4", width = 80, anchor ='c')
+        treev.column("5", width = 100, anchor ='c')
+          
+        # Assigning the heading names to the 
+        # respective columns
+        treev.heading("1", text ="ID")
+        treev.heading("2", text ="NAME")
+        treev.heading("3", text ="RANK")
+        treev.heading("4", text ="ACTION")
+        #treev.heading("5", text ="EPARTMENT")
+        
+        
+  
+# Configuring treeview
+        treev.configure(xscrollcommand = verscrlbar.set)
+        #cursor.execute("select * from t_courses")
+        
+        #result= cursor.fetchall()
+        #print(len(result))
+        result=("123","abc","rank1")
+        
+        for x in result:
+            treev.insert("", 'end', text ="",values =(x[0], x[1], x[2]))
+            
+        #treev.tag_configure('odd', foreground="white",background='black')
+        #treev.tag_configure('even', foreground="black",background='white')
+        '''
+    '''
+    def logout(self,text):
+        print(text)
+
+        #3opennewWindow(self)
+        root.destroy()
+        import login
+        #root.destroy()
+    '''
+        
+    def updateQuota(self):
+        D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
+        D_F.place(x=400,y=100,width=1030,height=580)
+          
+        M_title=Label(D_F,text="EDIT QUOTA",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
+        M_title.grid(row=0,column=3,padx= 15,pady=15)
+          
+        #cursor.execute("select * from register where username=%s")
+        
+        e1_Lbl=Label(D_F,text="Rank:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e1_Lbl.grid(row=2,column=3)
+
+        e1 = Entry(D_F, width=40,borderwidth=5)
+        e1.grid(row=2, column=4,padx= 15, pady= 15)
+        e1.insert(1, "123")
+ 
+        e2_Lbl=Label(D_F,text="Quantity:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e2_Lbl.grid(row=4,column=3)
+
+        
+        e2 = Entry(D_F, width=40,borderwidth=5)
+        e2.grid(row=4, column=4,padx= 10, pady= 10)
+        e2.insert(0, "100")
+ 
+                
+       
+        submitBtn=Button(D_F,text="SUBMIT", command=self.submit_AddCstData,width=30,bg="#2f8fdd",fg='white').grid(row=6,column=4,padx=20,pady=20)
+        
+
+    def addQuota(self):
+        
+        
+        #print("Student details")
+        #usr=fetch_Studentdata(r)
+        D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
+        D_F.place(x=400,y=100,width=1030,height=580)
+          
+        M_title=Label(D_F,text="ADD QUOTA",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
+        M_title.grid(row=0,column=3,padx= 15,pady=15)
+          
+        #cursor.execute("select * from register where username=%s")
+        
+        e1_Lbl=Label(D_F,text="Rank:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e1_Lbl.grid(row=2,column=3)
+
+        e1 = Entry(D_F, width=40,borderwidth=5)
+        e1.grid(row=2, column=4,padx= 15, pady= 15)
+        e1.insert(1, "")
+ 
+        e2_Lbl=Label(D_F,text="Quantity:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e2_Lbl.grid(row=4,column=3)
+
+        
+        e2 = Entry(D_F, width=40,borderwidth=5)
+        e2.grid(row=4, column=4,padx= 10, pady= 10)
+        e2.insert(0, "")
+ 
+               
+       
+        submitBtn=Button(D_F,text="SUBMIT", command=self.submit_AddCstData,width=30,bg="#2f8fdd",fg='white').grid(row=6,column=4,padx=20,pady=20)
 
     def submit_AddCstData(self):
         pass
