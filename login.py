@@ -33,7 +33,7 @@ class dashBoard:
         self.root=root
         #db.commit()
         self.usr=usr
-        self.root.title("LIQR SHOP MANAGEMENT")
+        self.root.title("LIQUOR SALES APPLICATION")
         self.root.geometry("1350x700+0+0")
 
         
@@ -75,12 +75,224 @@ class dashBoard:
         SrchBtn=Button(M_FB,text="MANAGE",command=self.userManagment,width=20,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=25,padx=40,pady=40)
 
              
-        SrchEBtn=Button(M_FB,text="SELL",command=self.fetch_Edata,width=20,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=30,padx=60,pady=40)
+        SrchEBtn=Button(M_FB,text="SELL",command=self.SellMgmtdata,width=20,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=30,padx=60,pady=40)
 
        
+    def SellMgmtdata(self):
+        M_F= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
+        M_F.place(x=20,y=100,width=1300,height=580)
+
         
+        M_FB1= Frame(self.root,bd=0,relief=RIDGE,bg="#f3fbfe")
+        M_FB1.place(x=120,y=120,width=1100,height=180)
+        
+        M_title=Label(M_FB1,text=" Welcome  "+self.usr+" !",font=("times new roman",12,"bold"),bg="#f3fbfe",fg='red')
+        M_title.grid(row=0,column=18,padx=30,pady=80)
+
+        M_Date=Label(M_FB1,text="                                                    Last login Sep 6th 2021!          ",font=("times new roman",12,"bold"),bg="#f3fbfe",fg='red')
+        M_Date.grid(row=0,column=26,padx=38,pady=80)
+ 
+        M_logout=Label(M_FB1,text="                                                        LOG OUT                         ",font=("times new roman",12,"bold"),bg="#f3fbfe",fg='red')
+        M_logout.grid(row=0,column=36,padx=38,pady=80)     
+
+        '''
 
 
+        M_title=Label(D_F,text="SEARCH BY DEPARTMENTS",font=("times new roman",10,"bold"),bg="crimson",fg='white')
+        M_title.grid(row=0,columnspan=2,pady=20)
+        '''
+
+        '''
+        lbl_roll=Label(M_F,text="STUDENT:",font=("times new roman",15,"bold"),bg="crimson",fg='white')
+        lbl_roll.grid(row=1,column=0,pady=10,padx=20,sticky="w")
+        ''' 
+        '''
+        combo_srch=ttk.Combobox(M_F,font=("times new roman",10,"bold"),state='readonly')
+        combo_srch['values']=("DIPLOMA","UG","PG","PH.D","OTHERS")
+        combo_srch.grid(row=1,column=1,padx=20,pady=10)
+        '''
+        M_FB= Frame(self.root,bd=0,relief=RIDGE,bg="#f3fbfe")
+        M_FB.place(x=540,y=300,width=600,height=280)
+        M_FB1= Frame(self.root,bd=0,relief=RIDGE,bg="#f3fbfe")
+        M_FB1.place(x=540,y=400,width=600,height=280)
+        
+        SrchBtn=Button(M_FB,text="EX: SERVICE MAN ",command=self.custDashboard,width=20,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=80,padx=30,pady=30)
+
+             
+        Srch1EBtn=Button(M_FB1,text="FORCE PERSONNEL",command=self.custDashboard,width=20,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=50,padx=30,pady=30)
+ 
+    def custDashboard(self):
+        M_F= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
+        M_F.place(x=20,y=100,width=1300,height=580)
+
+        
+        M_FB1= Frame(self.root,bd=0,relief=RIDGE,bg="#f3fbfe")
+        M_FB1.place(x=120,y=120,width=1100,height=180)
+        
+        M_title=Label(M_FB1,text=" Welcome  "+self.usr+" !",font=("times new roman",12,"bold"),bg="#f3fbfe",fg='red')
+        M_title.grid(row=0,column=18,padx=30,pady=80)
+
+        M_Date=Label(M_FB1,text="                                                    Last login Sep 6th 2021!          ",font=("times new roman",12,"bold"),bg="#f3fbfe",fg='red')
+        M_Date.grid(row=0,column=26,padx=38,pady=80)
+ 
+        M_logout=Label(M_FB1,text="                                                        LOG OUT                         ",font=("times new roman",12,"bold"),bg="#f3fbfe",fg='red')
+        M_logout.grid(row=0,column=36,padx=38,pady=80)     
+
+        '''
+
+
+        M_title=Label(D_F,text="SEARCH BY DEPARTMENTS",font=("times new roman",10,"bold"),bg="crimson",fg='white')
+        M_title.grid(row=0,columnspan=2,pady=20)
+        '''
+
+        '''
+        lbl_roll=Label(M_F,text="STUDENT:",font=("times new roman",15,"bold"),bg="crimson",fg='white')
+        lbl_roll.grid(row=1,column=0,pady=10,padx=20,sticky="w")
+        ''' 
+        '''
+        combo_srch=ttk.Combobox(M_F,font=("times new roman",10,"bold"),state='readonly')
+        combo_srch['values']=("DIPLOMA","UG","PG","PH.D","OTHERS")
+        combo_srch.grid(row=1,column=1,padx=20,pady=10)
+        '''
+        M_FB= Frame(self.root,bd=0,relief=RIDGE,bg="#f3fbfe")
+        M_FB.place(x=540,y=300,width=600,height=280)
+        M_FB1= Frame(self.root,bd=0,relief=RIDGE,bg="#f3fbfe")
+        M_FB1.place(x=540,y=400,width=600,height=280)
+        
+        SrchBtn=Button(M_FB,text="  MANUAL  ",command=self.manualInvis,width=20,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=30,padx=30,pady=30)
+
+             
+        Srch1EBtn=Button(M_FB,text="SCAN BARCODE",command=self.custDashboard,width=20,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=50,padx=30,pady=30)
+ 
+    def manualInvis(self):
+         M_F= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
+         M_F.place(x=20,y=100,width=1300,height=580)
+         M_FB1= Frame(self.root,bd=0,relief=RIDGE,bg="#f3fbfe")
+         M_FB1.place(x=120,y=120,width=1100,height=180)
+         M_title=Label(M_FB1,text=" Welcome  "+self.usr+" !",font=("times new roman",12,"bold"),bg="#f3fbfe",fg='red')
+         M_title.grid(row=0,column=18,padx=30,pady=80)
+
+         M_Date=Label(M_FB1,text="                                                    Last login Sep 6th 2021!          ",font=("times new roman",12,"bold"),bg="#f3fbfe",fg='red')
+         M_Date.grid(row=0,column=26,padx=38,pady=80)
+ 
+         M_logout=Label(M_FB1,text="                                                        LOG OUT                         ",font=("times new roman",12,"bold"),bg="#f3fbfe",fg='red')
+         M_logout.grid(row=0,column=36,padx=38,pady=80)     
+
+         M_FB= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
+         M_FB.place(x=340,y=340,width=650,height=40)
+
+         M_FB1= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
+         M_FB1.place(x=340,y=380,width=650,height=280)
+         
+         Title_info = Label(M_FB, text="  Manual Invoice ", bg="#f3fbfe",font=("times new roman",18,"bold"),fg='#2f8fdd')
+         Title_info.grid(row=0, column=40)
+
+
+         Title_info = Label(M_FB, text="  ", bg="#f3fbfe",font=("times new roman",14,"bold"),fg='#2f8fdd')
+         Title_info.grid(row=0, column=30)
+
+         Title_info = Label(M_FB1, text="Id: ", bg="#f3fbfe",font=("times new roman",12,"bold"),fg='#2f8fdd')
+         Title_info.grid(row=1, column=1, columnspan=4, padx=5, pady=5)
+         Title_info = Label(M_FB1, text="Name:                       ", bg="#f3fbfe",font=("times new roman",12,"bold"),fg='#2f8fdd')
+         Title_info.grid(row=1, column=25, columnspan=4, padx=5, pady=5)
+         Title_info = Label(M_FB1, text="Rank:", bg="#f3fbfe",font=("times new roman",12,"bold"),fg='#2f8fdd')
+         Title_info.grid(row=1, column=30, columnspan=4, padx=5, pady=5)
+         Title_info = Label(M_FB1, text="   Service Type:          ", bg="#f3fbfe",font=("times new roman",12,"bold"),fg='#2f8fdd')
+         Title_info.grid(row=1, column=34, columnspan=4, padx=5, pady=5)
+         Title_info = Label(M_FB1, text="Photo ", bg="#f3fbfe",font=("times new roman",12,"bold"),fg='#2f8fdd')
+         Title_info.grid(row=1, column=38, columnspan=4, padx=5, pady=5)
+         
+         image = PhotoImage(file="person.png")
+         small_img = image.subsample(4,4)
+         img = Label(M_FB1, image=small_img)
+         img.grid(row=2, column=38, rowspan=8, padx=5, pady=5)
+         Srch1EBtn=Button(M_FB1,text="NEXT",command=self.createInvoice,width=20,height=2,bg="#2f8fdd",fg="white").grid(row=10,column=38, rowspan=8, padx=5, pady=5)                  
+         Title_info = Label(M_FB1, text="Address: ", bg="#f3fbfe",font=("times new roman",12,"bold"),fg='#2f8fdd')
+         Title_info.grid(row=5, column=1, columnspan=4, padx=5, pady=5)
+         Title_info = Label(M_FB1, text="Mobile: ", bg="#f3fbfe",font=("times new roman",12,"bold"),fg='#2f8fdd')
+         Title_info.grid(row=8, column=1, columnspan=4, padx=5, pady=5)
+         Title_info = Label(M_FB1, text="Quota: ", bg="#f3fbfe",font=("times new roman",12,"bold"),fg='#2f8fdd')
+         Title_info.grid(row=10, column=1, columnspan=4, padx=5, pady=5)
+
+         
+    def createInvoice(self):
+         M_F= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
+         M_F.place(x=20,y=100,width=1300,height=600)
+         M_FB1= Frame(self.root,bd=0,relief=RIDGE,bg="#f3fbfe")
+         M_FB1.place(x=120,y=120,width=1100,height=180)
+         M_title=Label(M_FB1,text=" Welcome  "+self.usr+" !",font=("times new roman",12,"bold"),bg="#f3fbfe",fg='red')
+         M_title.grid(row=0,column=18,padx=30,pady=80)
+
+         M_Date=Label(M_FB1,text="                                                    Last login Sep 6th 2021!          ",font=("times new roman",12,"bold"),bg="#f3fbfe",fg='red')
+         M_Date.grid(row=0,column=26,padx=38,pady=80)
+ 
+         M_logout=Label(M_FB1,text="                                                        LOG OUT                         ",font=("times new roman",12,"bold"),bg="#f3fbfe",fg='red')
+         M_logout.grid(row=0,column=36,padx=38,pady=80)     
+
+         M_FB= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
+         M_FB.place(x=340,y=340,width=650,height=40)
+
+         M_FB1= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
+         M_FB1.place(x=340,y=380,width=650,height=320)
+         
+         Title_info = Label(M_FB, text="Invoice ", bg="#f3fbfe",font=("times new roman",18,"bold"),fg='#2f8fdd')
+         Title_info.grid(row=0, column=40)
+
+
+         Title_info = Label(M_FB, text="  ", bg="#f3fbfe",font=("times new roman",14,"bold"),fg='#2f8fdd')
+         Title_info.grid(row=0, column=30)
+
+         Title_info = Label(M_FB1, text="Id: ", bg="#f3fbfe",font=("times new roman",12,"bold"),fg='#2f8fdd')
+         Title_info.grid(row=1, column=1, columnspan=4, padx=5, pady=5)
+         Title_info = Label(M_FB1, text="Name:                       ", bg="#f3fbfe",font=("times new roman",12,"bold"),fg='#2f8fdd')
+         Title_info.grid(row=1, column=25, columnspan=4, padx=5, pady=5)
+         Title_info = Label(M_FB1, text="Rank:", bg="#f3fbfe",font=("times new roman",12,"bold"),fg='#2f8fdd')
+         Title_info.grid(row=1, column=30, columnspan=4, padx=5, pady=5)
+         Title_info = Label(M_FB1, text="   Service Type:          ", bg="#f3fbfe",font=("times new roman",12,"bold"),fg='#2f8fdd')
+         Title_info.grid(row=1, column=34, columnspan=4, padx=5, pady=5)
+                                  
+         Title_info = Label(M_FB1, text="Address: ", bg="#f3fbfe",font=("times new roman",12,"bold"),fg='#2f8fdd')
+         Title_info.grid(row=3, column=1, columnspan=4, padx=5, pady=5)
+         Title_info = Label(M_FB1, text="Mobile: ", bg="#f3fbfe",font=("times new roman",12,"bold"),fg='#2f8fdd')
+         Title_info.grid(row=7, column=1, columnspan=4, padx=5, pady=5)
+         M_FB2= Frame(self.root,bd=1,relief=RIDGE,bg="#f3fbfe")
+         M_FB2.place(x=380,y=480,width=580,height=190)
+         lst = [("SlNo","Item Name","Quantity","Rate"),(123,"Raj",100,1200),(123,"Raj",100,1200),(123,"Raj",100,1200),
+                ("" ,"  ","",""),("","  ",""  ,""),("","","TOTAL",3600)]
+         coln=len(lst[0])
+        #print(len(lst))
+         rows=9
+         cols=3
+         for x in range(len(lst)):
+             for y in range(coln):
+                 self.Table_Row=Entry(M_FB2,width=15,fg='#2f8fdd',font=('Arial',10,'bold'))
+                 self.Table_Row.grid(row=x+9,column=y+1)
+                 self.Table_Row.insert(END,lst[x][y])
+
+         Srch1EBtn=Button(M_FB2,text="PLACE ORDER",command=self.placeOrder,width=16,height=2,bg="#2f8fdd",fg="white").grid(row=18,column=10, rowspan=4, padx=5, pady=5)
+         #Act_title=Label(M_FB1,text="Action",font=('Arial',10,'bold'),fg='#2f8fdd').grid(row=0,column=10,padx= 20,pady=20)
+         
+        
+        
+    def placeOrder(self):
+         M_F= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
+         M_F.place(x=20,y=100,width=1300,height=600)
+         M_FB1= Frame(self.root,bd=0,relief=RIDGE,bg="#f3fbfe")
+         M_FB1.place(x=120,y=120,width=1100,height=180)
+         M_title=Label(M_FB1,text=" Welcome  "+self.usr+" !",font=("times new roman",12,"bold"),bg="#f3fbfe",fg='red')
+         M_title.grid(row=0,column=18,padx=30,pady=80)
+
+         M_Date=Label(M_FB1,text="                                                    Last login Sep 6th 2021!          ",font=("times new roman",12,"bold"),bg="#f3fbfe",fg='red')
+         M_Date.grid(row=0,column=26,padx=38,pady=80)
+ 
+         M_logout=Label(M_FB1,text="                                                        LOG OUT                         ",font=("times new roman",12,"bold"),bg="#f3fbfe",fg='red')
+         M_logout.grid(row=0,column=36,padx=38,pady=80)     
+
+         M_FB= Frame(self.root,bd=0,relief=RIDGE,bg="#f3fbfe")
+         M_FB.place(x=460,y=280,width=650,height=40)
+         Title_info = Label(M_FB, text="Order Placed Successfully ", bg="#f3fbfe",font=("times new roman",18,"bold"),fg='#2f8fdd')
+         Title_info.grid(row=0, column=40)
+        
     def userManagment(self):
         self.root=root
         #db.commit()
@@ -98,6 +310,7 @@ class dashBoard:
         M_title=Label(M_F,text="Welcome  "+self.usr+" !",font=("times new roman",12,"bold"),bg="crimson",fg='white')
         M_title.grid(row=0,columnspan=2,pady=20)
 
+        
         '''
 
 
@@ -128,15 +341,60 @@ class dashBoard:
         Log_Btn=Button(M_F,text="QUOTA MANAGEMENT",command=self.quotMgmtdata,width=30,bg="#2f8fdd",fg="white").grid(row=11,column=0,padx=20,pady=20)
 
         SrchEBtn=Button(M_F,text="USER MANAGEMENT",command=self.userMgmtdata,width=30,bg="#2f8fdd",fg="white").grid(row=13,column=0,padx=20,pady=20)
+        D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
+        D_F.place(x=300,y=100,width=1030,height=580)
+
+                  
+        M_title=Label(D_F,text="CUSTOMER MANAGEMENT",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
+        M_title.grid(row=0,column=15,padx= 25,pady=25)
+        Last_title=Label(D_F,text="Last login on Sep 6th",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=45, padx= 25,pady=20)
+
+        Last_title=Label(D_F,text="  Log out ",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=60, padx= 25,pady=20)
+
+        M_FB= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
+        M_FB.place(x=400,y=200,width=800,height=180)
+        
+        SrchBtn=Button(M_FB,text="ADD",command=self.addCustomr,width=30,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=25,padx=40,pady=40)
+
+             
+        SrchEBtn=Button(M_FB,text="AUDIT LOG",command=self.fetch_Edata,width=30,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=45,padx=60,pady=40)
+
+        M_FB1= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
+        M_FB1.place(x=400,y=500,width=800,height=180)
+
+
+        lst = [("Id","Name","Rank"),(123,"Raj","1st")]
+        coln=len(lst[0])
+        #print(len(lst))
+
+        for x in range(len(lst)):
+            for y in range(coln):
+                self.Table_Row=Entry(M_FB1,width=15,fg='#2f8fdd',font=('Arial',10,'bold'))
+                self.Table_Row.grid(row=x,column=y)
+                self.Table_Row.insert(END,lst[x][y])
+
+        Act_title=Label(M_FB1,text="Action",font=('Arial',10,'bold'),fg='#2f8fdd').grid(row=0,column=10,padx= 20,pady=20)
+        updateBtn=Button(M_FB1,text="UPDATE",command=self.updateCust,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=10,padx=15,pady=15)
+        deleteBtn=Button(M_FB1,text="DELETE",command=self.userManagment,width=8,height=2,bg="#2f8fdd",fg="white").grid(row=1,column=12,padx=20,pady=20)
+
 
         #Log_Btn=Button(M_F,text="LOG OUT",command=lambda: self.logout("Logout"),width=30,bg="#2f8fdd",fg="white").grid(row=9,column=0,padx=20,pady=20)
 
     def userMgmtdata(self):
         D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
-        D_F.place(x=400,y=100,width=1030,height=580)
+        D_F.place(x=300,y=100,width=1030,height=580)
+
+        
           
         M_title=Label(D_F,text="USER MANAGEMENT",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
-        M_title.grid(row=1,column=15,padx= 25,pady=25)
+        M_title.grid(row=0,column=15,padx= 25,pady=25)
+        Last_title=Label(D_F,text="Last login on Sep 6th",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=45, padx= 25,pady=20)
+
+        Last_title=Label(D_F,text="  Log out ",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=60, padx= 25,pady=20)
 
         M_FB= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
         M_FB.place(x=400,y=200,width=800,height=180)
@@ -228,10 +486,16 @@ class dashBoard:
         
     def updateUser(self):
         D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
-        D_F.place(x=400,y=100,width=1030,height=580)
+        D_F.place(x=300,y=100,width=1030,height=580)
+          
           
         M_title=Label(D_F,text="EDIT USER",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
-        M_title.grid(row=0,column=3,padx= 15,pady=15)
+        M_title.grid(row=0,column=2,padx= 15,pady=25)
+        Last_title=Label(D_F,text="Last login on Sep 6th",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=4, padx= 25,pady=20)
+
+        Last_title=Label(D_F,text="  Log out ",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=8, padx= 25,pady=20)
           
         #cursor.execute("select * from register where username=%s")
         
@@ -291,10 +555,15 @@ class dashBoard:
         #print("Student details")
         #usr=fetch_Studentdata(r)
         D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
-        D_F.place(x=400,y=100,width=1030,height=580)
+        D_F.place(x=300,y=100,width=1030,height=580)
           
         M_title=Label(D_F,text="ADD USER",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
-        M_title.grid(row=0,column=3,padx= 15,pady=15)
+        M_title.grid(row=0,column=2,padx= 15,pady=25)
+        Last_title=Label(D_F,text="Last login on Sep 6th",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=4, padx= 25,pady=20)
+
+        Last_title=Label(D_F,text="  Log out ",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=8, padx= 25,pady=20)
           
         #cursor.execute("select * from register where username=%s")
         
@@ -355,10 +624,17 @@ class dashBoard:
         
     def custMgmtdata(self):
         D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
-        D_F.place(x=400,y=100,width=1030,height=580)
+        D_F.place(x=300,y=100,width=1030,height=580)
+
+        
           
         M_title=Label(D_F,text="CUSTOMER MANAGEMENT",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
-        M_title.grid(row=1,column=15,padx= 25,pady=25)
+        M_title.grid(row=0,column=15,padx= 25,pady=25)
+        Last_title=Label(D_F,text="Last login on Sep 6th",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=45, padx= 25,pady=20)
+
+        Last_title=Label(D_F,text="  Log out ",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=60, padx= 25,pady=20)
 
         M_FB= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
         M_FB.place(x=400,y=200,width=800,height=180)
@@ -455,10 +731,15 @@ class dashBoard:
         
     def updateCust(self):
         D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
-        D_F.place(x=400,y=100,width=1030,height=580)
+        D_F.place(x=300,y=100,width=1030,height=580)
           
         M_title=Label(D_F,text="EDIT CUSTOMER",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
-        M_title.grid(row=0,column=3,padx= 15,pady=15)
+        M_title.grid(row=0,column=2,padx= 15,pady=25)
+        Last_title=Label(D_F,text="Last login on Sep 6th",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=4, padx= 25,pady=20)
+
+        Last_title=Label(D_F,text="  Log out ",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=8, padx= 25,pady=20)
           
         #cursor.execute("select * from register where username=%s")
         
@@ -511,10 +792,15 @@ class dashBoard:
         #print("Student details")
         #usr=fetch_Studentdata(r)
         D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
-        D_F.place(x=400,y=100,width=1030,height=580)
+        D_F.place(x=300,y=100,width=1030,height=580)
           
         M_title=Label(D_F,text="ADD CUSTOMER",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
-        M_title.grid(row=0,column=3,padx= 15,pady=15)
+        M_title.grid(row=0,column=2,padx= 15,pady=25)
+        Last_title=Label(D_F,text="Last login on Sep 6th",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=4, padx= 25,pady=20)
+
+        Last_title=Label(D_F,text="  Log out ",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=8, padx= 25,pady=20)
           
         #cursor.execute("select * from register where username=%s")
         
@@ -567,10 +853,17 @@ class dashBoard:
 
     def inventMgmtdata(self):
         D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
-        D_F.place(x=400,y=100,width=1030,height=580)
+        D_F.place(x=300,y=100,width=1030,height=580)
+
+        
           
         M_title=Label(D_F,text="INVENTORY MANAGEMENT",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
-        M_title.grid(row=1,column=15,padx= 25,pady=25)
+        M_title.grid(row=0,column=15,padx= 25,pady=25)
+        Last_title=Label(D_F,text="Last login on Sep 6th",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=45, padx= 25,pady=20)
+
+        Last_title=Label(D_F,text="  Log out ",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=60, padx= 25,pady=20)
 
         M_FB= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
         M_FB.place(x=400,y=200,width=900,height=180)
@@ -663,10 +956,15 @@ class dashBoard:
         
     def updateItem(self):
         D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
-        D_F.place(x=400,y=100,width=1030,height=580)
+        D_F.place(x=300,y=100,width=1030,height=580)
           
         M_title=Label(D_F,text="EDIT ITEM",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
-        M_title.grid(row=0,column=3,padx= 15,pady=15)
+        M_title.grid(row=0,column=2,padx= 15,pady=25)
+        Last_title=Label(D_F,text="Last login on Sep 6th",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=4, padx= 25,pady=20)
+
+        Last_title=Label(D_F,text="  Log out ",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=8, padx= 25,pady=20)
           
         #cursor.execute("select * from register where username=%s")
         
@@ -726,10 +1024,15 @@ class dashBoard:
         #print("Student details")
         #usr=fetch_Studentdata(r)
         D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
-        D_F.place(x=400,y=100,width=1030,height=580)
+        D_F.place(x=300,y=100,width=1030,height=580)
           
         M_title=Label(D_F,text="ADD ITEM",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
-        M_title.grid(row=0,column=3,padx= 15,pady=15)
+        M_title.grid(row=0,column=2,padx= 15,pady=25)
+        Last_title=Label(D_F,text="Last login on Sep 6th",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=4, padx= 25,pady=20)
+
+        Last_title=Label(D_F,text="  Log out ",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=8, padx= 25,pady=20)
           
         #cursor.execute("select * from register where username=%s")
         
@@ -784,10 +1087,17 @@ class dashBoard:
 
     def rankMgmtdata(self):
         D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
-        D_F.place(x=400,y=100,width=1030,height=580)
+        D_F.place(x=300,y=100,width=1030,height=580)
+
+        
           
         M_title=Label(D_F,text="RANK MANAGEMENT",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
-        M_title.grid(row=1,column=15,padx= 25,pady=25)
+        M_title.grid(row=0,column=15,padx= 25,pady=25)
+        Last_title=Label(D_F,text="Last login on Sep 6th",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=45, padx= 25,pady=20)
+
+        Last_title=Label(D_F,text="  Log out ",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=60, padx= 25,pady=20)
 
         M_FB= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
         M_FB.place(x=400,y=200,width=800,height=180)
@@ -881,10 +1191,15 @@ class dashBoard:
         
     def updateRank(self):
         D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
-        D_F.place(x=400,y=100,width=1030,height=580)
+        D_F.place(x=300,y=100,width=1030,height=580)
           
         M_title=Label(D_F,text="EDIT RANK",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
-        M_title.grid(row=0,column=3,padx= 15,pady=15)
+        M_title.grid(row=0,column=2,padx= 15,pady=25)
+        Last_title=Label(D_F,text="Last login on Sep 6th",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=4, padx= 25,pady=20)
+
+        Last_title=Label(D_F,text="  Log out ",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=8, padx= 25,pady=20)
           
         #cursor.execute("select * from register where username=%s")
         
@@ -914,10 +1229,15 @@ class dashBoard:
         #print("Student details")
         #usr=fetch_Studentdata(r)
         D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
-        D_F.place(x=400,y=100,width=1030,height=580)
+        D_F.place(x=300,y=100,width=1030,height=580)
           
         M_title=Label(D_F,text="ADD RANK",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
-        M_title.grid(row=0,column=3,padx= 15,pady=15)
+        M_title.grid(row=0,column=2,padx= 15,pady=25)
+        Last_title=Label(D_F,text="Last login on Sep 6th",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=4, padx= 25,pady=20)
+
+        Last_title=Label(D_F,text="  Log out ",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=8, padx= 25,pady=20)
           
         #cursor.execute("select * from register where username=%s")
         
@@ -944,10 +1264,17 @@ class dashBoard:
 
     def quotMgmtdata(self):
         D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
-        D_F.place(x=400,y=100,width=1030,height=580)
+        D_F.place(x=300,y=100,width=1030,height=580)
+
+        
           
         M_title=Label(D_F,text="QUOTA MANAGEMENT",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
-        M_title.grid(row=1,column=15,padx= 25,pady=25)
+        M_title.grid(row=0,column=15,padx= 25,pady=25)
+        Last_title=Label(D_F,text="Last login on Sep 6th",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=45, padx= 25,pady=20)
+
+        Last_title=Label(D_F,text="  Log out ",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=60, padx= 25,pady=20)
 
         M_FB= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
         M_FB.place(x=400,y=200,width=800,height=180)
@@ -1039,11 +1366,15 @@ class dashBoard:
         
     def updateQuota(self):
         D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
-        D_F.place(x=400,y=100,width=1030,height=580)
+        D_F.place(x=300,y=100,width=1030,height=580)
           
         M_title=Label(D_F,text="EDIT QUOTA",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
-        M_title.grid(row=0,column=3,padx= 15,pady=15)
-          
+        M_title.grid(row=0,column=2,padx= 15,pady=25)
+        Last_title=Label(D_F,text="Last login on Sep 6th",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=4, padx= 25,pady=20)
+
+        Last_title=Label(D_F,text="  Log out ",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=8, padx= 25,pady=20)
         #cursor.execute("select * from register where username=%s")
         
         e1_Lbl=Label(D_F,text="Rank:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
@@ -1071,32 +1402,43 @@ class dashBoard:
         
         #print("Student details")
         #usr=fetch_Studentdata(r)
+      
         D_F= Frame(self.root,bd=2,relief=RAISED,bg="#f3fbfe")
-        D_F.place(x=400,y=100,width=1030,height=580)
+        D_F.place(x=300,y=100,width=1030,height=580)
+
+        
           
         M_title=Label(D_F,text="ADD QUOTA",font=("times new roman",20,"bold"),bg="#2f8fdd",fg='white')
-        M_title.grid(row=0,column=3,padx= 15,pady=15)
+        M_title.grid(row=0,column=15,padx= 25,pady=25)
+        Last_title=Label(D_F,text="Last login on Sep 6th",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=45, padx= 25,pady=20)
+
+        Last_title=Label(D_F,text="  Log out ",font=("times new roman",12,"bold"),bg="crimson",fg='white')
+        Last_title.grid(row=0,column=60, padx= 25,pady=20)
+
+        M_FB= Frame(self.root,bd=2,relief=RIDGE,bg="#f3fbfe")
+        M_FB.place(x=400,y=200,width=800,height=180)
           
         #cursor.execute("select * from register where username=%s")
         
-        e1_Lbl=Label(D_F,text="Rank:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e1_Lbl=Label(M_FB,text="Rank:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
         e1_Lbl.grid(row=2,column=3)
 
-        e1 = Entry(D_F, width=40,borderwidth=5)
+        e1 = Entry(M_FB, width=40,borderwidth=5)
         e1.grid(row=2, column=4,padx= 15, pady= 15)
         e1.insert(1, "")
  
-        e2_Lbl=Label(D_F,text="Quantity:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
+        e2_Lbl=Label(M_FB,text="Quantity:",font=("times new roman",13,"bold"),bg="#2f8fdd",fg='white')
         e2_Lbl.grid(row=4,column=3)
 
         
-        e2 = Entry(D_F, width=40,borderwidth=5)
+        e2 = Entry(M_FB, width=40,borderwidth=5)
         e2.grid(row=4, column=4,padx= 10, pady= 10)
         e2.insert(0, "")
  
                
        
-        submitBtn=Button(D_F,text="SUBMIT", command=self.submit_AddCstData,width=30,bg="#2f8fdd",fg='white').grid(row=6,column=4,padx=20,pady=20)
+        submitBtn=Button(M_FB,text="SUBMIT", command=self.submit_AddCstData,width=30,bg="#2f8fdd",fg='white').grid(row=6,column=4,padx=20,pady=20)
 
     def submit_AddCstData(self):
         pass
@@ -1453,9 +1795,10 @@ root.config(background="coral")
 #root.
 
 #print(user)
-title=Label(root,text="LIQUOR SHOP",font=("times new roman",28,"bold"),bg="#f3fbfe",fg='#2f8fdd')
+title=Label(root,text="LIQUOR SALES APPLICATION",font=("times new roman",28,"bold"),bg="#f3fbfe",fg='#2f8fdd')
 title.pack(side=TOP,fill=X)
- 
+
+
  
 # Definging the first row
 lblfrstrow = tk.Label(root, text ="USER NAME: -", bg="#f3fbfe",fg="#2f8fdd")
